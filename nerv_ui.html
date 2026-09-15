@@ -191,7 +191,7 @@ bindToggle('m4b','m4b',()=>{ $('#hud_fmt').textContent=state.m4b?'M4B':'M4A'; })
 $('#drop').addEventListener('click',pickFile);
 async function pickFile(){
   if(hasApi()){ const p=await window.pywebview.api.choose_file(); if(p) setFile(p); }
-  else { setFile('/Users/liam/REDSHiFT/Scenes/Chapter_01.md'); log('MOCK // no backend, simulated source','warn'); }
+  else { setFile('REDSHiFT/Scenes/Chapter_01.md'); log('MOCK // no backend, simulated source','warn'); }
 }
 function setFile(path){ state.file=path; state.fmt_ext=(path.split('.').pop()||'').toUpperCase();
   state.lastOut=null; $('#drop').classList.add('armed'); $('#dropFolder').classList.remove('armed');
@@ -202,7 +202,7 @@ function setFile(path){ state.file=path; state.fmt_ext=(path.split('.').pop()||'
 $('#dropFolder').addEventListener('click', pickFolder);
 async function pickFolder(){
   if(hasApi()){ const p=await window.pywebview.api.choose_folder(); if(p) setFolder(p); }
-  else { setFolder('/Users/liam/REDSHiFT/Scenes'); log('MOCK // simulated folder','warn'); }
+  else { setFolder('REDSHiFT/Scenes'); log('MOCK // simulated folder','warn'); }
 }
 function setFolder(path){ state.file=path; state.fmt_ext='FOLDER'; state.lastOut=null;
   state.m4b=true; const t=$('#m4b'); t.classList.add('on'); $('#hud_fmt').textContent='M4B';
@@ -303,7 +303,7 @@ function stopAudio(){ AV.playing=false; $('#play').classList.remove('armed'); $(
 
 function mockRender(fmt){ const n=fmt==='m4b'?1:(state.bypara?24:6); window.nervStart(n); let i=0;
   const iv=setInterval(()=>{ i++; const name=fmt==='m4b'?'Chapter_01.m4b':'Chapter_01_'+String(i).padStart(3,'0')+'.m4a';
-    window.nervProgress(i,n,name); if(i>=n){ clearInterval(iv); window.nervDone('/Users/liam/REDSHiFT/Scenes/Chapter_01_audio',n); } },fmt==='m4b'?700:350); }
+    window.nervProgress(i,n,name); if(i>=n){ clearInterval(iv); window.nervDone('REDSHiFT/Scenes/Chapter_01_audio',n); } },fmt==='m4b'?700:350); }
 
 let booted=false;
 function boot(){ if(booted) return; booted=true;

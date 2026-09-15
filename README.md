@@ -1,5 +1,7 @@
 # Offline audiobook reader
 
+[![smoke test](https://github.com/ARIES-photonics/redshift-reader/actions/workflows/smoke.yml/badge.svg)](https://github.com/ARIES-photonics/redshift-reader/actions/workflows/smoke.yml)
+
 Turns a book file into a chaptered audiobook using the speech voices already installed on macOS. No
 network calls, no API keys, no subscription. Ships as a command-line tool and as a packaged .app.
 
